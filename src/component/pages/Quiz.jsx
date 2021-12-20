@@ -1,7 +1,7 @@
 import { getDatabase, ref, set } from "firebase/database";
 import _ from "lodash";
 import { useEffect, useReducer, useState } from "react";
-import { useLocation, useNavigate, useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import { useAuth } from "../../AuthContext/AuthContext";
 import useQuzie from "../../Hook/useQuzie";
 import Answer from "../Answers/Answers";
@@ -40,8 +40,8 @@ function Quiz() {
 
   const { CorrenUser } = useAuth();
 
-  const {states}=useLocation
-  console.log(states)
+  // const {states}=useLocation
+  // console.log(states)
   const Navigate = useNavigate();
   useEffect(() => {
     dispatch({
@@ -86,7 +86,7 @@ function Quiz() {
     //     qna,
     //   },
     // });
-    Navigate(`result/${useId}`,{state:{qna,}})
+    Navigate(`/result/${useId}`,{state:{qna: qna}})
 
   }
 
